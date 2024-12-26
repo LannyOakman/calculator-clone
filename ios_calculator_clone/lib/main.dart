@@ -1,8 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ios_calculator_clone/widgets/custom_button.dart';
-import 'package:ios_calculator_clone/widgets/custom_column.dart';
-import 'package:ios_calculator_clone/widgets/custom_container.dart';
-import 'dart:math';
+import 'package:ios_calculator_clone/data/calculator_layout.dart';
+import 'package:ios_calculator_clone/widgets/formatted_button.dart';
 
 void main() {
   runApp(const MainApp());
@@ -14,22 +13,24 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: CustomContainer(
-            color: Color(0xfff78f07),
-            height: 100,
-            width: 100,
-            child: Center(
-              child: Text(
-                "÷",
-                style: TextStyle(fontSize: 50, color: Colors.white, fontFamily: "SanFrancisco", fontWeight: FontWeight.w200),
-              ),
-            ),
-            onTap: () => {print("helloworld")},
-          )
-        ),
-      ),
-    );
+        home: Scaffold(
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.95,
+          margin: EdgeInsets.only(top: 390),
+          
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children:[
+              for(var items in CalculatorLayout.calculator_layout) Column(
+                  children: <FormattedButton>[
+                    for(var item in items) FormattedButton(color: item.color, icon: item.icon, string: item.string,)
+                  ],
+                ),
+            ],
+          ),
+      )),
+    ));
   }
 }

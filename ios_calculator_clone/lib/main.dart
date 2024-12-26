@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ios_calculator_clone/data/calculator_layout.dart';
 import 'package:ios_calculator_clone/widgets/formatted_button.dart';

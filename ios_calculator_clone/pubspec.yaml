@@ -19,8 +19,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  fonts:
-    - family: SanFrancisco
-      fonts:
-        - asset: fonts/SanFrancisco.ttf
-          weight: 300

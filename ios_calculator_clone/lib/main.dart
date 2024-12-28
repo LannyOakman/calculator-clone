@@ -11,7 +11,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(
-    BuildContext context,
+    BuildContext context
   ) {
     return MaterialApp(
       home: Scaffold(

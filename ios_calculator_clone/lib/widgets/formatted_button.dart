@@ -4,15 +4,19 @@ class FormattedButton extends StatelessWidget {
   final Color color;
   final String? string;
   final IconData? icon;
-  final int? num;
+  final Function? onPressed;
 
   const FormattedButton({
     super.key,
     required this.color,
     this.string,
     this.icon,
-    this.num,
+    this.onPressed,
   });
+
+  (String?, IconData?) getData(){
+    return (string, icon);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +25,6 @@ class FormattedButton extends StatelessWidget {
     if (string != null) {
       childWidget = Text(
         string!,
-        style: TextStyle(
-          fontSize: 50,
-          color: Colors.white,
-          fontFamily: "SanFrancisco",
-          fontWeight: FontWeight.w300,
-        ),
-      );
-    } else if (num != null) {
-      childWidget = Text(
-        num.toString(),
         style: TextStyle(
           fontSize: 50,
           color: Colors.white,
@@ -55,7 +49,7 @@ class FormattedButton extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: () => {
-          print("help")
+          onPressed!(getData())
         },
         style: ElevatedButton.styleFrom(
             shape: CircleBorder(),
@@ -68,3 +62,4 @@ class FormattedButton extends StatelessWidget {
     );
   }
 }
+
